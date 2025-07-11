@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'dj_rest_auth','allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration'
+    'dj_rest_auth.registration',
+    "whitenoise.runserver_nostatic",
 ]
 
 REST_FRAMEWORK ={
@@ -61,6 +62,7 @@ REST_FRAMEWORK ={
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -138,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
-STATICFILES_ROOT = BASE_DIR/'static'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
